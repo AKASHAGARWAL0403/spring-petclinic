@@ -3,9 +3,13 @@ package com.springframework.petclinic.Services.map;
 import com.springframework.petclinic.Services.CrudService;
 import com.springframework.petclinic.Services.OwnerService;
 import com.springframework.petclinic.model.Owner;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
+@Scope(value = "singleton")
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
 
     @Override
@@ -25,7 +29,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId() , object);
+        return super.save(object);
     }
 
     @Override
